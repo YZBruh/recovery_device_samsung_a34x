@@ -48,7 +48,7 @@ else
 
     if multidisabler; then
         w_log "I" "Storage successfuly decrypted."
-        exit 0
+        reboot recovery
     else
         w_log "E" "The storage encryption has not been decrypted!"
         exit 1
