@@ -1,4 +1,4 @@
-import ./multidisabler-helper.rc
+import /multidisabler-helper.rc
 
 on init
     setprop sys.usb.configfs 1
