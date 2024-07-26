@@ -42,7 +42,7 @@ else
     if twrp wipe userdata; then
         w_log "I" "Data has been formatted successfully"
     else
-        w_log "E" "Formatting failed!'
+        w_log "E" "Formatting failed!"
         exit 1
     fi
 
