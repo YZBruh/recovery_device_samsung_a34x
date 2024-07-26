@@ -1,4 +1,4 @@
-on boot
+on property:sys.boot_completed=1
     start multidisabler-helper
 
 service multidisabler-helper /system/bin/multidisabler-helper
