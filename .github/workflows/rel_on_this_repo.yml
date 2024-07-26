@@ -28,17 +28,22 @@ jobs:
           sudo aria2c "${{ github.event.inputs.DOWNLOAD_URL }}"
           FNAME=$(basename *)
           TARGET_FNAME=$(echo "${FNAME}" | rev | cut -d. -f2- | rev)
-          echo "UPLOAD_TARGET=${TARGET_FNAME}.tar" >> $GITHUB_ENV
+          echo "UPLOAD_TARGET=${TARGET_FNAME}.tar.md5" >> $GITHUB_ENV
           tar -H ustar -c "${FNAME}" > "${TARGET_FNAME}.tar"
           md5sum -b -t "${TARGET_FNAME}.tar" >> "${TARGET_FNAME}.tar"
+          mv "${TARGET_FNAME}.tar" "${TARGET_FNAME}.tar.md5" 
 
       - name: Upload package
         id: upload-to-rels
         uses: softprops/action-gh-release@v2
         with:
-          files: /home/workdir/${{ env.UPLOAD_TARGET }}
-          name: TAR.MD5 Package - ${{ github.run_id }}
+          files: |
+            /home/workdir/${{ env.UPLOAD_TARGET }}
+            /home/workdir/*.img
+          name: Galaxy A34 TWRP Release - ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
-          body: Download URL; ${{ github.event.inputs.DOWNLOAD_URL }}
+          body: |
+            Manifest: twrp-12.1
+            Please test it and report the results!
         env:
           GITHUB_TOKEN: ${{ secrets.GTOKEN }}
