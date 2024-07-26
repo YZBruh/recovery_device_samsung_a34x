@@ -21,10 +21,11 @@ jobs:
         run: |
           cd /home
           sudo mkdir workdir \
-          && sudo chmod 777 workdir
+          && sudo chmod 777 workdir \
+          && cd workdir
           sudo apt update \
           && sudo apt install tar aria2
-          aria2c "${{ github.event.inputs.DOWNLOAD_URL }}"
+          sudo aria2c "${{ github.event.inputs.DOWNLOAD_URL }}"
           FNAME=$(basename *)
           TARGET_FNAME=$(echo "${FNAME}" | rev | cut -d. -f2- | rev)
           echo "UPLOAD_TARGET=${TARGET_FNAME}.tar" >> $GITHUB_ENV
