@@ -1,4 +1,4 @@
-name: Release
+name: Release Recovery
 
 on: 
   workflow_dispatch:
@@ -9,15 +9,15 @@ on:
         default: ''
 
 jobs:
-  make-tarpack:
+  rel-recovery:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download and generate package
-        id: gen-pack
+      - name: Perform general operations
+        id: perform-all
         run: |
           cd /home
           sudo mkdir workdir \
@@ -28,7 +28,6 @@ jobs:
           sudo aria2c "${{ github.event.inputs.DOWNLOAD_URL }}"
           FNAME=$(basename *)
           TARGET_FNAME=$(echo "${FNAME}" | rev | cut -d. -f2- | rev)
-          echo "UPLOAD_TARGET=${TARGET_FNAME}.tar.md5" >> $GITHUB_ENV
           tar -H ustar -c "${FNAME}" > "${TARGET_FNAME}.tar"
           md5sum -b -t "${TARGET_FNAME}.tar" >> "${TARGET_FNAME}.tar"
           mv "${TARGET_FNAME}.tar" "${TARGET_FNAME}.tar.md5" 
@@ -38,7 +37,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            /home/workdir/${{ env.UPLOAD_TARGET }}
+            /home/workdir/*.tar.md5
             /home/workdir/*.img
           name: Galaxy A34 TWRP Release - ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
