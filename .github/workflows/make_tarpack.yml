@@ -1,0 +1,43 @@
+name: Make TARMD5 Package
+
+on: 
+  workflow_dispatch:
+    inputs:
+      DOWNLOAD_URL:
+        description: "Direct download link of the recovery/boot/vendor_boot image"
+        required: true
+        default: ''
+
+jobs:
+  make-tarpack:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download and generate package
+        id: gen-pack
+        run: |
+          cd /home
+          sudo mkdir workdir \
+          && sudo chmod 777 workdir
+          sudo apt update \
+          && sudo apt install tar aria2
+          aria2c "${{ github.event.inputs.DOWNLOAD_URL }}"
+          FNAME=$(basename *)
+          TARGET_FNAME=$(echo "${FNAME}" | rev | cut -d. -f2- | rev)
+          echo "UPLOAD_TARGET=${TARGET_FNAME}.tar" >> $GITHUB_ENV
+          tar -H ustar -c "${FNAME}" > "${TARGET_FNAME}.tar"
+          md5sum -b -t "${TARGET_FNAME}.tar" >> "${TARGET_FNAME}.tar"
+
+      - name: Upload package
+        id: upload-to-rels
+        uses: softprops/action-gh-release@v2
+        with:
+          files: /home/workdir/${{ env.UPLOAD_TARGET }}
+          name: TAR.MD5 Package - ${{ github.run_id }}
+          tag_name: ${{ github.run_id }}
+          body: Download URL; ${{ github.event.inputs.DOWNLOAD_URL }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
