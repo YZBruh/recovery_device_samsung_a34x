@@ -37,7 +37,14 @@ if access "/data/local"; then
     exit 0
 else
     w_log "W" "Storage is encrypted!"
-    w_log "I" "Starting multidisabler..."
+    w_log "I" "Formatting data..."
+
+    if twrp wipe userdata; then
+        w_log "I" "Data has been formatted successfully"
+    else
+        w_log "E" "Formatting failed!'
+        exit 1
+    fi
 
     if multidisabler; then
         w_log "I" "Storage successfuly decrypted."
