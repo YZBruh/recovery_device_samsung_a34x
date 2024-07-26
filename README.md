@@ -1,14 +1,14 @@
-# Recovery Device Tree for Samsung Galaxy A34 (SM-346B | a34x)
+# Recovery Device Tree for Samsung Galaxy A34 (SM-A346B | a34x)
 
 ## Device spefication (briefly)
-|Basic               |Spec Sheet                                                    |
-|--                  |--                                                            |
-|CPU                 |Octa-core (2x 2.6 GHz ARM Cortex-A78 & 6x 2.0 GHz ARM Cortex-A55)    |
-|Chipset             |MediaTek Dimensity 1080 (MT6877V/TTZA)                               |
-|GPU                 |Mali-G68 MC4                                                  |
-|Codename            |a34x                                                          |
-|Memory              |8GB RAM                                                     |
-|Android Version     |13                                                            |
+|Basic               |Spec Sheet                                                         |
+|--                  |--                                                                 |
+|CPU                 |Octa-core (2x 2.6 GHz ARM Cortex-A78 & 6x 2.0 GHz ARM Cortex-A55)  |
+|Chipset             |MediaTek Dimensity 1080 (MT6877V/TTZA)                             |
+|GPU                 |Mali-G68 MC4                                                       |
+|Codename            |a34x                                                               |
+|Memory              |8GB RAM                                                            |
+|Android Version     |13                                                                 |
 |Storage             |128/256GB
 
 ## Situation
