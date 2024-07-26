@@ -48,7 +48,7 @@
 /mvpu_algo2        emmc        /dev/block/platform/bootdevice/by-name/mvpu_algo2         flags=display="MVPU_ALGO2";backup=1
 /modem             emmc        /dev/block/platform/bootdevice/by-name/apnhlos            flags=display="Modem";backup=1;flashimg=1
 /mdm               emmc        /dev/block/platform/bootdevice/by-name/modem              flags=display="MDM";backup=1;flashimg=1
-/efs               ext4        /dev/block/platform/bootdevice/by-name/efs            flags=display="EFS";backup=1
+/efs               ext4        /dev/block/platform/bootdevice/by-name/efs                flags=display="EFS";backup=1
 /sec_efs           ext4        /dev/block/platform/bootdevice/by-name/sec_efs            flags=display="SEC EFS";backup=1;flashimg=1
 /carrier           ext4        /dev/block/platform/bootdevice/by-name/carrier            flags=display="Carrier";backup=1
 
