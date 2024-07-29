@@ -48,7 +48,7 @@ else
 
     if multidisabler; then
         w_log "I" "Storage successfuly decrypted."
-        reboot recovery
+        twrp print "${0}: please reboot device"
     else
         w_log "E" "The storage encryption has not been decrypted!"
         exit 1
