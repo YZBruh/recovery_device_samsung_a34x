@@ -8,7 +8,7 @@
 |GPU                 |Mali-G68 MC4                                                       |
 |Codename            |a34x                                                               |
 |Memory              |8GB RAM                                                            |
-|Android Version     |13                                                                 |
+|Android Version     |13/14                                                              |
 |Storage             |128/256GB
 
 ## Situation
@@ -17,31 +17,31 @@
 - [X] Backup to internal/microSD
 - [X] Restore from internal/microSD
 - [X] Reboot to system
-- [ ] ADB
+- [X] ADB
 
 Medium checks
-- [ ] Update.zip sideload
+- [X] Update.zip sideload
 - [X] UI colors (red/blue inversions)
 - [X] Screen goes off and on
 - [X] F2FS/EXT4 Support, exFAT/NTFS where supported
 - [X] All important partitions listed in mount/backup lists
-- [ ] Backup/restore to/from external (USB-OTG) storage
-- [ ] Backup/restore to/from adb (https://gerrit.omnirom.org/#/c/15943/)
+- [X] Backup/restore to/from external (USB-OTG) storage
+- [X] Backup/restore to/from adb (https://gerrit.omnirom.org/#/c/15943/)
 - [X] Decrypt /data (with automated multidisabler)
 - [X] Correct date
 
 Minor checks
-- [ ] MTP export
-- [X] Reboot to bootloader (is a samsung device)
+- [X] MTP export
+- [ ] Reboot to bootloader (is a samsung device)
 - [X] Reboot to recovery
 - [X] Poweroff
 - [X] Battery level
 - [X] Temperature
 - [X] Encrypted backups
-- [ ] Input devices via USB (USB-OTG) - keyboard, mouse and disks
-- [ ] USB mass storage export
+- [X] Input devices via USB (USB-OTG) - keyboard, mouse and disks
+- [X] USB mass storage export
 - [X] Set brightness
-- [ ] Vibrate
+- [X] Vibrate
 - [X] Screenshot
 - [X] Partition SD card
 
