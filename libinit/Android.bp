@@ -1,9 +1,0 @@
-cc_library_static { 
-    name: "libinit_a34x",
-    srcs: ["libinit_a34x.cpp"],
-    include_dirs: [
-        "system/core/init",
-        "system/core/base/include",
-    ],
-    recovery_available: true,
-}
