@@ -47,20 +47,28 @@ void load_properties(const char *model)
 void vendor_load_properties()
 {
     string bootloader_name = GetProperty(BOOTLOADER_PROPERTY, "");
-    LOG(INFO) << LOGTAG_LIB << ": your bootloader version: " << bootloader_name;
 
-    for (int i = 0; models[i].model_name != ""; i++)
+    if (bootloader_name != "")
     {
-        if (bootloader_name.find(models[i].model_name) != string::npos)
+        LOG(INFO) << LOGTAG_LIB << ": your bootloader version: " << bootloader_name;
+ 
+        for (int i = 0; models[i].model_name != ""; i++)
         {
-            LOG(DEBUG) << LOGTAG_LIB << ": loading " << models[i].model_name << " model properties...";
-            load_properties(models[i].model_name.c_str());
-            break;
+            if (bootloader_name.find(models[i].model_name) != string::npos)
+            {
+                LOG(DEBUG) << LOGTAG_LIB << ": loading " << models[i].model_name << " model properties...";
+                load_properties(models[i].model_name.c_str());
+                break;
+            }
         }
-    }
 
-    if (! props_loaded)
-        LOG(WARNING) << LOGTAG_LIB << ": information about B/E/M variants was not found in the bootloader version! The device could not be detected. Properties belonging to the A346B model code will be used.";
+        if (! props_loaded)
+            LOG(WARNING) << LOGTAG_LIB << ": information about B/E/M variants was not found in the bootloader version! The device could not be detected. Properties belonging to the A346B model code will be used.";
+    }
+    else
+        LOG(WARNING) << LOGTAG_LIB << ": failed to get " << BOOTLOADER_PROPERTY << " property content. Properties belonging to the A346B model code will be used.";
+
+    }
 }
 
 }  // namespace init
