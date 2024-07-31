@@ -68,7 +68,6 @@ void vendor_load_properties()
     else
         LOG(WARNING) << LOGTAG_LIB << ": failed to get " << BOOTLOADER_PROPERTY << " property content. Properties belonging to the A346B model code will be used.";
 
-    }
 }
 
 }  // namespace init
