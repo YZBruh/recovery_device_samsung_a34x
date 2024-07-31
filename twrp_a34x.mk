@@ -12,9 +12,10 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 $(call inherit-product, device/samsung/a34x/device.mk)
 
 PRODUCT_DEVICE := a34x
-PRODUCT_NAME := twrp_a34x
+PRODUCT_RELEASE_NAME := $(PRODUCT_DEVICE)
+PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-A346B
-PRODUCT_MANUFACTURER := samsung
+PRODUCT_MANUFACTURER := $(PRODUCT_BRAND)
 
-PRODUCT_GMS_CLIENTID_BASE := android-samsung-ss
+PRODUCT_GMS_CLIENTID_BASE := android-$(PRODUCT_BRAND)-ss

@@ -22,3 +22,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     shrink
+
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.product.system.model \
+    ro.product.vendor.model \
+    ro.product.odm.model \
+    ro.product.model \
+    ro.product.product.model \
+    ro.product.system_ext.model
