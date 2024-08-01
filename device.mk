@@ -32,6 +32,11 @@ PRODUCT_PACKAGES += \
     dump.erofs \
     fsck.erofs
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    charger_res
+
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.system.model \
     ro.product.vendor.model \
