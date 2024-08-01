@@ -34,13 +34,19 @@ namespace init {
 
 void load_properties(const char *model)
 {
-    property_set("ro.product.system.model", model);
-    property_set("ro.product.vendor.model", model);
-    property_set("ro.product.odm.model", model);
-    property_set("ro.product.model", model);
-    property_set("ro.product.product.model", model);
-    property_set("ro.product.system_ext.model", model);
+    size_t len = 3 + strlen(model) + 1;
+    char* model_comb = new char[len];
+    strcpy(model_comb, "SM-");
+    strcat(model_comb, model);
 
+    property_set("ro.product.system.model", model_comb);
+    property_set("ro.product.vendor.model", model_comb);
+    property_set("ro.product.odm.model", model_comb);
+    property_set("ro.product.model", model_comb);
+    property_set("ro.product.product.model", model_comb);
+    property_set("ro.product.system_ext.model", model_comb);
+
+    delete[] model_comb;
     props_loaded = true;
 }
 
@@ -63,10 +69,16 @@ void vendor_load_properties()
         }
 
         if (! props_loaded)
+        {
             LOG(WARNING) << LOGTAG_LIB << ": information about B/E/M variants was not found in the bootloader version! The device could not be detected. Properties belonging to the A346B model code will be used.";
+            load_properties("A346B");
+        }
     }
     else
+    {
         LOG(WARNING) << LOGTAG_LIB << ": failed to get " << BOOTLOADER_PROPERTY << " property content. Properties belonging to the A346B model code will be used.";
+        load_properties("A346B");
+    }
 
 }
 
