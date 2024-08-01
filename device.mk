@@ -20,9 +20,7 @@ PRODUCT_PACKAGES += \
     android.hardware.health@2.1-service \
     libhealthd.$(PRODUCT_PLATFORM)
 
-PRODUCT_PACKAGES += \
-    shrink \
-    libinit_a34x
+PRODUCT_PACKAGES += shrink
 
 # EROFS Tools
 PRODUCT_HOST_PACKAGES += \
