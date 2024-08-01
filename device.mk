@@ -21,7 +21,8 @@ PRODUCT_PACKAGES += \
     libhealthd.$(PRODUCT_PLATFORM)
 
 PRODUCT_PACKAGES += \
-    shrink
+    shrink \
+    libinit_a34x
 
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.system.model \
