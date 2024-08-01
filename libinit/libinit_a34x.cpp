@@ -8,7 +8,7 @@
 #include "log.h"
 #include <string>
 #include <fstream>
-#include <iostream>
+#include <stdbool.h>
 
 #define BOOTLOADER_PROPERTY "ro.bootloader"
 #define LOGTAG_LIB          "libinit_a34x"
