@@ -25,7 +25,7 @@ PRODUCT_PACKAGES += \
     libinit_a34x
 
 # EROFS Tools
-PRODUCT_PACKAGES += \
+PRODUCT_HOST_PACKAGES += \
     liberofs \
     mkfs.erofs \
     make_erofs \
