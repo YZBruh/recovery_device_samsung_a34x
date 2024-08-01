@@ -24,6 +24,14 @@ PRODUCT_PACKAGES += \
     shrink \
     libinit_a34x
 
+# EROFS Tools
+PRODUCT_PACKAGES += \
+    liberofs \
+    mkfs.erofs \
+    make_erofs \
+    dump.erofs \
+    fsck.erofs
+
 PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
     ro.product.system.model \
     ro.product.vendor.model \
