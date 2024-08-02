@@ -1,4 +1,4 @@
-# Recovery Device Tree for Samsung Galaxy A34 (SM-A346B | a34x)
+# Recovery Device Tree for Samsung Galaxy A34 (a34x)
 
 ## Device spefication (briefly)
 |Basic               |Spec Sheet                                                         |
