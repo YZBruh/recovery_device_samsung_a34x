@@ -36,8 +36,12 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += shrink
 
+# TWRP TZData
+PRODUCT_PACKAGES_ENG += \
+    tzdata_twrp
+
 # EROFS Tools
-PRODUCT_HOST_PACKAGES += \
+PRODUCT_HOST_PACKAGES_ENG += \
     liberofs \
     mkfs.erofs \
     make_erofs \
