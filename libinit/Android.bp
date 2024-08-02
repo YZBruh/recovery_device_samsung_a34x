@@ -8,14 +8,3 @@ cc_library_static {
     ],
     recovery_available: true,
 }
-
-cc_library_static {
-    name: "libinit_a34x.recovery",
-    srcs: ["libinit_a34x.cpp"],
-    whole_static_libs: ["libbase"],
-    include_dirs: [
-        "system/core/base/include",
-        "system/core/init",
-    ],
-    recovery_available: true,
-}
