@@ -9,6 +9,20 @@ PRODUCT_TARGET_VNDK_VERSION := 33
 # API
 PRODUCT_SHIPPING_API_LEVEL := 32
 
+# Boot control HAL
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.2-service \
+    android.hardware.boot@1.2-mtkimpl \
+    android.hardware.boot@1.2-mtkimpl.recovery
+
+PRODUCT_PACKAGES_DEBUG += \
+    bootctrl \
+    update_engine_client
+
+PRODUCT_PACKAGES += \
+    bootctrl.mt6877 \
+    bootctrl.mt6877.recovery
+
 # fastbootd
 PRODUCT_PACKAGES += \
     android.hardware.fastboot@1.0-impl-mock \
