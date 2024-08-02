@@ -73,10 +73,10 @@ BOARD_SUPER_PARTITION_SIZE := 9126805504
 BOARD_SUPER_PARTITION_GROUPS := mtk_dynamic_partitions
 BOARD_MTK_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
-    system_ext \
     vendor \
     product \
-    odm
+    odm \
+    system_ext
 BOARD_MTK_DYNAMIC_PARTITIONS_SIZE := 9126611200
 
 TARGET_COPY_OUT_VENDOR := vendor
