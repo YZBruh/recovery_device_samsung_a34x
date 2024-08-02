@@ -11,6 +11,11 @@ $(call inherit-product, vendor/twrp/config/common.mk)
 # Inherit from a34x device
 $(call inherit-product, device/samsung/a34x/device.mk)
 
+# Charger
+PRODUCT_PACKAGES += \
+    charger_res_images \
+    charger_res
+
 PRODUCT_DEVICE := a34x
 PRODUCT_RELEASE_NAME := $(PRODUCT_DEVICE)
 PRODUCT_NAME := twrp_$(PRODUCT_DEVICE)
