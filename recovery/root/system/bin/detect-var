@@ -1,0 +1,28 @@
+#!/system/bin/sh
+# By YZBruh
+
+bl_prop=$(getprop ro.bootloader)
+models=("A346B" "A346E" "A346M")
+setenforce 0
+
+reset_props()
+{
+    resetprop "ro.product.system.model" "${1}"
+    resetprop "ro.product.vendor.model" "${1}"
+    resetprop "ro.product.odm.model" "${1}"
+    resetprop "ro.product.model" "${1}"
+    resetprop "ro.product.product.model" "${1}"
+    resetprop "ro.product.system_ext.model" "${1}"
+}
+
+for m in ${models[@]}; do
+    if echo ${bl_prop} | grep -q ${m}; then
+        final_prop="SM-${m}"
+        reset_props "${final_prop}"
+        exit 0
+    else
+        continue
+    fi
+done
+
+reset_props "SM-A346B"
