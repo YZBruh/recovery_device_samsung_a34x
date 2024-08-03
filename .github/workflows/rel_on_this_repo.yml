@@ -7,6 +7,10 @@ on:
         description: "Direct download link of the recovery/boot/vendor_boot image"
         required: true
         default: ''
+      EXTRA_NOTE:
+        description: "An extra text to add to the release notes (optional)"
+        required: false
+        default: ''
 
 jobs:
   rel-recovery:
@@ -42,7 +46,7 @@ jobs:
           name: Galaxy A34 TWRP Release - ${{ github.run_id }}
           tag_name: ${{ github.run_id }}
           body: |
-            Manifest: twrp-12.1
             Please test it and report the results!
+            Extra note: ${{ github.event.inputs.EXTRA_NOTE }}
         env:
           GITHUB_TOKEN: ${{ secrets.GTOKEN }}
