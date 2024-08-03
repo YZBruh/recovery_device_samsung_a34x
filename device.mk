@@ -12,9 +12,6 @@ PRODUCT_SHIPPING_API_LEVEL := $(if $(filter 30,$(BOARD_SYSTEMSDK_VERSIONS)),30,3
 # Soong
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
-# libmtk_bsg
-PRODUCT_PACKAGES += libmtk_bsg
-
 # Boot control HAL
 PRODUCT_PACKAGES += \
     android.hardware.boot@1.2-service \
