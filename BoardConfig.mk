@@ -140,6 +140,7 @@ TW_INCLUDE_FASTBOOTD := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
 
 # Crypto
 TW_INCLUDE_CRYPTO := false
