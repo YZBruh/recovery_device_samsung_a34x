@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
     {
         ssize_t n = pread(fd, buffer, CHUNK_SIZE, pos);
         if (n == -1)
-            errx(1, "Failed to read file.");
+            error(1, errno, "Failed to read file");
 
         for (off_t i = n - 1; i >= 0; --i)
         {
