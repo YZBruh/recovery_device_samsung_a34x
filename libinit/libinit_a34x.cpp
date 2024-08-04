@@ -54,7 +54,7 @@ void load_properties(string model)
     for (int i = 0; props[i].property != ""; i++)
     {
         if (!SetProperty(props[i].property, model))
-            LOG(WARNING) << LOGTAG_LIB << ": " << props[i].property " property could not be set to " << model;
+            LOG(WARNING) << LOGTAG_LIB << ": " << props[i].property << " property could not be set to " << model;
     }
 
     props_loaded = true;
