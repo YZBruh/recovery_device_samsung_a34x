@@ -61,7 +61,7 @@ BOARD_MKBOOTIMG_ARGS += \
     --dtb $(TARGET_PREBUILT_DTB)
 
 # Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_a34x
+TARGET_INIT_VENDOR_LIB := libinit_a34x
 TARGET_RECOVERY_DEVICE_MODULES := libinit_a34x
 
 # Partitions
