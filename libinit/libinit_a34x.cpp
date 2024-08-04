@@ -21,10 +21,24 @@ struct model_names {
     string model_name;
 };
 
+struct target_props {
+    string property;
+};
+
 static struct model_names models[] = {
     {"A346B"},
     {"A346E"},
     {"A346M"},
+    {""}
+};
+
+static struct target_props props[] = {
+    {"ro.product.system.model"},
+    {"ro.product.vendor.model"},
+    {"ro.product.odm.model"},
+    {"ro.product.model"},
+    {"ro.product.product.model"},
+    {"ro.product.system_ext.model"},
     {""}
 };
 
@@ -37,12 +51,11 @@ void load_properties(string model)
 {
     model.insert(0, "SM-");
 
-    SetProperty("ro.product.system.model", model);
-    SetProperty("ro.product.vendor.model", model);
-    SetProperty("ro.product.odm.model", model);
-    SetProperty("ro.product.model", model);
-    SetProperty("ro.product.product.model", model);
-    SetProperty("ro.product.system_ext.model", model);
+    for (int i = 0; props[i].property != ""; i++)
+    {
+        if (!SetProperty(props[i].property, model))
+            LOG(WARNING) << LOGTAG_LIB << ": " << props[i].property " property could not be set to " << model;
+    }
 
     props_loaded = true;
 }
