@@ -32,21 +32,17 @@ static bool props_loaded = false;
 namespace android {
 namespace init {
 
-void load_properties(const char *model)
+void load_properties(string model)
 {
-    size_t len = 3 + strlen(model) + 1;
-    char* model_comb = new char[len];
-    strcpy(model_comb, "SM-");
-    strcat(model_comb, model);
+    model.insert(0, "SM-");
 
-    property_set("ro.product.system.model", model_comb);
-    property_set("ro.product.vendor.model", model_comb);
-    property_set("ro.product.odm.model", model_comb);
-    property_set("ro.product.model", model_comb);
-    property_set("ro.product.product.model", model_comb);
-    property_set("ro.product.system_ext.model", model_comb);
+    SetProperty("ro.product.system.model", model);
+    SetProperty("ro.product.vendor.model", model);
+    SetProperty("ro.product.odm.model", model);
+    SetProperty("ro.product.model", model);
+    SetProperty("ro.product.product.model", model);
+    SetProperty("ro.product.system_ext.model", model);
 
-    delete[] model_comb;
     props_loaded = true;
 }
 
