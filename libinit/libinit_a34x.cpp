@@ -15,6 +15,7 @@
 
 using namespace std;
 using android::base::GetProperty;
+using android::base::SetProperty;
 
 struct model_names {
     string model_name;
