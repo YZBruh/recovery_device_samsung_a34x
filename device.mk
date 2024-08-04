@@ -12,12 +12,6 @@ PRODUCT_SHIPPING_API_LEVEL := $(if $(filter 30,$(BOARD_SYSTEMSDK_VERSIONS)),30,3
 # Soong
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.2-service \
-    android.hardware.boot@1.2-mtkimpl \
-    android.hardware.boot@1.2-mtkimpl.recovery
-
 PRODUCT_PACKAGES_DEBUG += \
     bootctrl \
     update_engine_client
