@@ -4,7 +4,7 @@
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 
-#include "property_service.h"
+#include <property_service.h>
 #include "log.h"
 #include <string>
 #include <fstream>
