@@ -3,10 +3,9 @@ cc_library_static {
     srcs: ["libinit_a34x.cpp"],
     whole_static_libs: ["libbase"],
     shared_libs: ["liblog"],
-    header_libs: [
-        "libbase_headers",
-        "libinit_headers",
-        "liblog_headers",
+    include_dirs: [
+        "system/core/init",
+        "system/logging/liblog/include"
     ],
     recovery_available: true,
 }
