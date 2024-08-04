@@ -49,4 +49,4 @@
 
 # SD Card & USB-OTG storage
 /external_sd       vfat        /dev/block/mmcblk0p1         /dev/block/mmcblk0                       flags=fsflags=utf8;display="MicroSD";storage;wipeingui;removable
-/usb_otg           vfat        /dev/block/sda               /dev/block/sdb                           flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable
+/usb_otg           vfat        /dev/block/sdd1              /dev/block/sdd                           flags=fsflags=utf8;display="USB-Storage";storage;wipeingui;removable;
