@@ -6,5 +6,6 @@ cc_library_static {
         "system/core/init",
         "system/logging/liblog/include"
     ],
+    shared_libs: ["liblog"],
     recovery_available: true,
 }
