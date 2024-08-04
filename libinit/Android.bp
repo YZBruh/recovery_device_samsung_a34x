@@ -3,7 +3,6 @@ cc_library_static {
     srcs: ["libinit_a34x.cpp"],
     whole_static_libs: ["libbase"],
     include_dirs: [
-        "system/core/base/include",
         "system/core/init",
     ],
     recovery_available: true,
